@@ -32,7 +32,7 @@
         android:id="@+id/reticle"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@android:drawable/radiobutton_off_background"
+        android:background="@drawable/reticle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
