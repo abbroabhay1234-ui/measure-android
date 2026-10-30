@@ -29,15 +29,12 @@ jobs:
 
       - name: Build Debug APK with Gradle
         run: |
-          ./gradlew assembleDebug 2>&1 | tee build.log || {
-            echo "====================== ERROR SUMMARY ======================"
-            grep -A 20 -B 2 "What went wrong" build.log || tail -n 40 build.log
-            echo "==========================================================="
-            exit 1
-          }
+          ./gradlew assembleDebug --stacktrace
+          echo "Listing generated APK files:"
+          find . -name "*.apk"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Measure-Android-APK
-          path: "app/build/outputs/apk/debug/*.apk"
+          path: "**/*.apk"
